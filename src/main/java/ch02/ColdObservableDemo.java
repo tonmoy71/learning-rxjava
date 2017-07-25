@@ -16,5 +16,17 @@ public class ColdObservableDemo {
 
         // Second observer
         source.subscribe(s -> System.out.println("Observer 2 Received: " + s));
+
+        Observable<Integer> numbers = Observable.range(1, 20);
+
+        Observable<Integer> evenNumbers = numbers.filter(integer -> integer % 2 == 0);
+
+        Observable<Integer> oddNumbers = numbers.filter(integer -> integer % 2 != 0);
+
+        evenNumbers.subscribe(integer -> System.out.println("Even integer = " + integer));
+
+        oddNumbers.subscribe(integer -> System.out.println("Odd integer = " + integer));
+
+
     }
 }
